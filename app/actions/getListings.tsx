@@ -8,6 +8,12 @@ export default async function getListings() {
         }
       });
 
+      // const safeListings = listings.map((listing) => ({
+      //   ...listings,
+      //   createdAt: listing.createdAt.toISOString(),
+      // }));
+
+      // return safeListings;
       return listings;
   } catch (error: any) {
     throw new Error(error);

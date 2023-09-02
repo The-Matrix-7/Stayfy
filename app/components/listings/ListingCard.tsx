@@ -8,6 +8,7 @@ import { format } from "date-fns";
 import Image from "next/image";
 import HeartButton from "../HeartButton";
 import Button from "../Button";
+// import { SafeListing } from "@/app/types";
 
 interface ListingCardProps {
   data: Listing;
@@ -65,7 +66,7 @@ const ListingCard: React.FC<ListingCardProps> = ({
 
   return ( 
     <div
-      onClick={() => router.push(`/listing/${data.id}`)}
+      onClick={() => router.push(`/listings/${data.id}`)}
       className="
         col-span-1 cursor-pointer group
       "
