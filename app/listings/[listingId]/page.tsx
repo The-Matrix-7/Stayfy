@@ -1,6 +1,6 @@
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import getListingById from "@/app/actions/getListingById";
-import ListingClient from "@/app/api/favorites/[listingId]/ListingClient";
+import ListingClient from "./ListingClient";
 import EmptyState from "@/app/components/EmptyState";
 
 interface IParams {
