@@ -40,7 +40,7 @@ const EmptyState: React.FC<EmptyState> = ({
             label="Remove all filters"
             onClick={() => router.push('/')}
           />
-        )}]
+        )}
       </div>
     </div>
    );
