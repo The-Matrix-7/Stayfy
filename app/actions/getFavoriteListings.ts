@@ -17,7 +17,6 @@ export default async function getFavoriteListings() {
       }
     });
 
-    // safeFavorites
     return favorites;
   } catch (error: any ) {
     throw new Error(error);

@@ -12,7 +12,6 @@ import dynamic from "next/dynamic";
 import Counter from "../inputs/Counter";
 import ImageUpload from "../inputs/ImageUpload";
 import Input from "../inputs/Input";
-import { error } from "console";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -99,7 +98,7 @@ const RentModal = () => {
       rentModal.onClose();
     })
     .catch(() => {
-      toast.error('Something went wrong.');
+      toast.error('Something went wrong');
     }).finally(() => {
       setIsLoading(false);
     })
