@@ -7,11 +7,11 @@ import { useRouter } from "next/navigation";
 import Heading from "../components/Heading";
 import Container from "../components/Container";
 import ListingCard from "../components/listings/ListingCard";
-import { Reservation, User } from "@prisma/client";
+import { SafeReservation, SafeUser } from "@/app/types"
 
 interface ReservationsClientProps {
-  reservations: Reservation[];
-  currentUser?: User | null;
+  reservations: SafeReservation[],
+  currentUser?: SafeUser | null,
 }
 
 const ReservationsClient: React.FC<ReservationsClientProps> = ({
@@ -56,7 +56,7 @@ const ReservationsClient: React.FC<ReservationsClientProps> = ({
           gap-8
         "
       >
-        {reservations.map((reservation) => (
+        {reservations.map((reservation: any) => (
           <ListingCard 
             key={reservation.id}
             data={reservation.listing}

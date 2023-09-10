@@ -1,17 +1,17 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Listing, Reservation, User } from "@prisma/client";
 import Container from "../components/Container";
 import Heading from "../components/Heading";
 import { useCallback, useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import ListingCard from '../components/listings/ListingCard';
+import { SafeListing, SafeUser } from '../types';
 
 interface PropertiesClientProps {
-  listings: Listing[];
-  currentUser?: User | null;
+  listings: SafeListing[];
+  currentUser?: SafeUser | null;
 }
 
 const PropertiesClient: React.FC<PropertiesClientProps> = ({

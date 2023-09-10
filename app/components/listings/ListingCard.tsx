@@ -1,67 +1,66 @@
 'use client';
 
 import useCountries from "@/app/hooks/useCountries";
-import { Listing, Reservation, User } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { format } from "date-fns";
 import Image from "next/image";
 import HeartButton from "../HeartButton";
 import Button from "../Button";
+import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 
 interface ListingCardProps {
-  data: Listing;
-  reservation?: Reservation;
+  data: SafeListing;
+  reservation?: SafeReservation;
   onAction?: (id: string) => void;
   disabled?: boolean;
   actionLabel?: string;
   actionId?: string;
-  currentUser?: User | null;
+  currentUser?: SafeUser | null;
 }
 
 const ListingCard: React.FC<ListingCardProps> = ({
   data,
   reservation,
   onAction,
-  disabled,
+  disabled, 
   actionLabel,
-  actionId = "",
-  currentUser
+  actionId = '',
+  currentUser,
 }) => {
   const router = useRouter();
   const { getByValue } = useCountries();
 
   const location = getByValue(data.locationValue);
 
-  const handleCancel = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation();
+  const handleCancel = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
 
-      if (disabled) {
-        return;
-      }
+    if (disabled) {
+      return;
+    }
 
-      onAction?.(actionId);
-    }, [onAction, actionId, disabled])
+    onAction?.(actionId);
+  }, [onAction, actionId, disabled])
 
-    const price = useMemo(() => {
-      if (reservation) {
-        return reservation.totalPrice;
-      }
+  const price = useMemo(() => {
+    if (reservation) {
+      return reservation.totalPrice;
+    }
 
-      return data.price;
-    }, [reservation, data.price]);
+    return data.price;
+  }, [reservation, data.price]);
 
-    const reservationDate = useMemo(() => {
-      if (!reservation) {
-        return null;
-      }
+  const reservationDate = useMemo(() => {
+    if (!reservation) {
+      return null;
+    }
 
-      const start = new Date(reservation.startDate);
-      const end = new Date(reservation.endDate);
+    const start = new Date(reservation.startDate);
+    const end = new Date(reservation.endDate);
 
-      return `${format(start, 'PP')} - ${format(end, 'PP')}`
-    }, [reservation]);
+    return `${format(start, 'PP')} - ${format(end, 'PP')}`
+  }, [reservation]);
 
   return ( 
     <div
