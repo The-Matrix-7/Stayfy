@@ -33,7 +33,7 @@ const ListingHead: React.FC<ListingHeadProps> = ({
       <div
         className="
           w-full
-          h-[60vh]
+          h-[70vh]
           overflow-hidden
           rounded-xl
           relative
