@@ -56,7 +56,7 @@ const CountrySelect: React.FC<CountrySelectProps> = ({
           colors: {
             ...theme.colors,
             primary: "#636364",
-            primary25: "#ffe4e5",
+            primary25: "#BFDBFE",
           }
         })}
       />
