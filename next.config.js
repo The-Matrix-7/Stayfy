@@ -9,7 +9,7 @@ const nextConfig = {
       "lh3.googleusercontent.com",
       "res.cloudinary.com"
     ],
-    unoptimized: process.env.NODE_ENV === 'production',
+    unoptimized: true,
   }
 }
 
