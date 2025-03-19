@@ -4,8 +4,8 @@ frontend:
     preBuild:
       commands:
         - npm install
-        - echo "DATABASE_URL is set: ${DATABASE_URL:0:5}..."
-        - echo "NEXTAUTH_SECRET is set: ${NEXTAUTH_SECRET:0:5}..."
+        - "echo DATABASE_URL is set: ${DATABASE_URL:0:5}..."
+        - "echo NEXTAUTH_SECRET is set: ${NEXTAUTH_SECRET:0:5}..."
         - npx prisma generate
     build:
       commands:
